@@ -17,12 +17,13 @@ export function Profile() {
     const [isLoading, setIsLoading] = useState(false)
     const [campaigns, setCampaigns] = useState([] as ParsedCampaign[])
 
-    const { address, contract, getUserCampaigns } = useContext(StateContext)
+    const { address, contract, getUserCampaigns, searchCampaign } = useContext(StateContext)
 
     async function fetchCampaigns() {
         setIsLoading(true)
         const data = await getUserCampaigns()
-        setCampaigns(data)
+        const filteredData = data.filter((campaign) => campaign.title.toLowerCase().includes(searchCampaign.toLowerCase()))
+        setCampaigns(filteredData)
         setIsLoading(false)
     }
 

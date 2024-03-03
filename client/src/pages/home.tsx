@@ -18,12 +18,13 @@ export function Home() {
     const [isLoading, setIsLoading] = useState(false)
     const [campaigns, setCampaigns] = useState([] as ParsedCampaign[])
 
-    const { address, contract, getCampaigns } = useContext(StateContext)
+    const { address, contract, getCampaigns, searchCampaign } = useContext(StateContext)
 
     async function fetchCampaigns() {
         setIsLoading(true)
         const data = await getCampaigns()
-        setCampaigns(data)
+        const filteredData = data.filter((campaign) => campaign.title.toLowerCase().includes(searchCampaign.toLowerCase()))
+        setCampaigns(filteredData)
         setIsLoading(false)
     }
 
@@ -31,7 +32,7 @@ export function Home() {
         if (contract) {
             fetchCampaigns()
         }
-    }, [address, contract])
+    }, [address, contract, searchCampaign])
 
     return (
         <DisplayCampaigns

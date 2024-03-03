@@ -11,7 +11,7 @@ export function Navbar() {
     const navigate = useNavigate()
     const [isActive, setIsActive] = useState("dashboard")
     const [toggleDrawer, setToggleDrawer] = useState(false)
-    const { address, connect } = useContext(StateContext)
+    const { address, connect, searchCampaign, setSearchCampaign } = useContext(StateContext)
 
     return (
         <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">
@@ -21,6 +21,8 @@ export function Navbar() {
                 <input type="text" placeholder="Search for campaigns"
                     className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264]
                     text-white bg-transparent outline-none"
+                    value={searchCampaign}
+                    onChange={(e) => setSearchCampaign(e.target.value)}
                 />
                 <div className="w-[72px] h-full rounded-[20px] bg-[#4acd8d] flex justify-center items-center cursor-pointer">
                     <img src={search} alt="search" className="w-[15px] h-[15px] object-contain" />

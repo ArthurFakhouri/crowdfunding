@@ -1,6 +1,6 @@
 import { SmartContract, useAddress, useConnect, useContract, useContractWrite, useDisconnect } from "@thirdweb-dev/react";
 import { BaseContract, BigNumber, ethers } from "ethers";
-import { ReactNode, createContext } from "react";
+import { ReactNode, SetStateAction, createContext, useState } from "react";
 
 type CampaignThirdweb = {
     owner: string
@@ -38,6 +38,8 @@ export type StateContextType = {
     getUserCampaigns: () => Promise<ParsedCampaign[]>
     donate: (pId: string, amount: string) => Promise<any>
     getDonations: (pId: string) => Promise<ParsedDonation[]>
+    searchCampaign: string
+    setSearchCampaign: (search: SetStateAction<string>) => void
 }
 
 export const StateContext = createContext({} as StateContextType)
@@ -135,6 +137,8 @@ export function StateContextProvider({ children }: StateContextProviderProps) {
         return parseDonations
     }
 
+    const [searchCampaign, setSearchCampaign] = useState('')
+
     return (
         <StateContext.Provider value={{
             address,
@@ -145,7 +149,9 @@ export function StateContextProvider({ children }: StateContextProviderProps) {
             getCampaigns,
             getUserCampaigns,
             donate,
-            getDonations
+            getDonations,
+            searchCampaign,
+            setSearchCampaign
         }}>
             {children}
         </StateContext.Provider>
