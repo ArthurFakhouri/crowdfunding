@@ -20,7 +20,7 @@
 
 Crowdfunding it's a Web3 blockchain platform created to practice dApps
 
-<b>Funcionalidades:</b>
+<b>Functionalities:</b>
 - Connect wallet
 - Create campaign
 - Crete donation
@@ -55,5 +55,5 @@ The project was developed using these technologies:
 - [Thirdweb](https://thirdweb.com)
 - [Metamask](https://metamask.io)
 
-## :memo: Licença
-Este projeto está sob a licença do MIT. Consulte a [LICENÇA](LICENSE) para obter detalhes.
+## :memo: License
+This project is under the MIT License. See [LICENSE](LICENSE) for details.
