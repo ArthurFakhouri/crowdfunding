@@ -33,8 +33,8 @@ Crowdfunding it's a Web3 blockchain platform created to practice dApps
 ## 🔧 How to execute it 
 Go to the folder where you clone the project, open a terminal and follow these steps:
 - 01 - cd client
-- 02 - npm install (Esse comando irá instalar todas as dependências do projeto)
-- 03 - npm run dev (Esse comando irá executar o projeto e por default estará rodando em: http://localhost:5173
+- 02 - npm install (This command will install all project dependencies)
+- 03 - npm run dev (This command will run the project and by default it will be running at: http://localhost:5173)
 
 ## 📽️ Demonstration
 
